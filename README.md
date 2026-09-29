@@ -134,8 +134,8 @@ $$\text{Match Score} = W_{\text{exact}} (40\%) + W_{\text{generic}} (30\%) + W_{
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-DA.git
-   cd Medicine-Donation-Center-Locator-DA
+   git clone https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-Data-Analyst.git
+   cd Medicine-Donation-Center-Locator-Data-Analyst
    ```
 
 2. **Install dependencies:**
