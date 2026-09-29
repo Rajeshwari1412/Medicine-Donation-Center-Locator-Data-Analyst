@@ -19,8 +19,9 @@
     background: red;
     color: white;
     border-radius: 6px;
-    border: none;
     cursor: pointer;
-    margin-left: 10px;}
-.btn-reject:hover {background: darkred;}
-export default CenterTimings;
+    margin-left: 10px;
+}
+.btn-reject:hover {
+    background: darkred;
+}
