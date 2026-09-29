@@ -1,5 +1,6 @@
 # Medicine Donation Center Locator – Category-Based Guidelines & Timings
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel%20App-000000?logo=vercel&logoColor=white)](https://medicine-donation-center-locator-data-analyst-966gt4jqo.vercel.app)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?logo=github&logoColor=white)](https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-Data-Analyst)
 [![React Native](https://img.shields.io/badge/Mobile-React%20Native-61DAFB?logo=react&logoColor=black)](https://reactnative.dev/)
 [![React](https://img.shields.io/badge/Frontend-React%2018-61DAFB?logo=react&logoColor=black)](https://react.dev/)
@@ -7,7 +8,8 @@
 [![SQL Analytics](https://img.shields.io/badge/Analytics-Advanced%20SQL-CC292B?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 🔗 **Project URL:** [https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-Data-Analyst](https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-Data-Analyst)
+> 🌐 **Live Application URL:** [https://medicine-donation-center-locator-data-analyst-966gt4jqo.vercel.app](https://medicine-donation-center-locator-data-analyst-966gt4jqo.vercel.app)  
+> 🔗 **GitHub Repository:** [https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-Data-Analyst](https://github.com/Rajeshwari1412/Medicine-Donation-Center-Locator-Data-Analyst)
 
 A centralized, data-driven medicine donation platform designed to bridge the gap between verified medicine donors and healthcare recipients in need. By combining **React Native**, **Supabase (PostgreSQL)**, and **SQL demand forecasting**, the platform streamlines medication collection, category-specific safety verification, and algorithmic matching.
 
