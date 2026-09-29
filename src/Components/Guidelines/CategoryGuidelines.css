@@ -1,0 +1,122 @@
+.guidelines-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.guidelines-header h2 {
+  font-size: 1.5rem;
+  color: #0f172a;
+  margin: 0 0 6px 0;
+}
+
+.guidelines-header p {
+  color: #64748b;
+  margin: 0 0 20px 0;
+}
+
+.category-filter-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.filter-chip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #cbd5e1;
+  background: #f8fafc;
+  color: #475569;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-chip:hover {
+  background: #f1f5f9;
+}
+
+.filter-chip.active {
+  background: #0d9488;
+  color: #ffffff;
+  border-color: #0d9488;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.guideline-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 20px;
+  background: #ffffff;
+  transition: box-shadow 0.2s ease;
+}
+
+.guideline-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.guideline-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.category-pill {
+  background: #ccfbf1;
+  color: #0f766e;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.storage-condition {
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.guideline-title {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+}
+
+.rules-section h4 {
+  color: #15803d;
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+}
+
+.rules-section ul,
+.prohibited-section ul {
+  padding-left: 20px;
+  margin: 0 0 16px 0;
+  font-size: 0.85rem;
+  color: #334155;
+  line-height: 1.5;
+}
+
+.prohibited-section h4 {
+  color: #b91c1c;
+  font-size: 0.9rem;
+  margin: 0 0 8px 0;
+}
+
+.packaging-note {
+  background: #f8fafc;
+  border-left: 4px solid #0d9488;
+  padding: 10px 14px;
+  border-radius: 4px;
+  font-size: 0.825rem;
+  color: #334155;
+}

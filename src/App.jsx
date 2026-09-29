@@ -12,13 +12,15 @@ import AddDonationCenter from './Components/Admin-Pages/AddDonationCenters';
 import CenterTimings from './Components/Admin-Pages/CenterTimings';
 import ManageCenters from './Components/Admin-Pages/ManageCenters';
 
-// User Pages
+// User & Feature Pages
 import DonationCenters from './Components/UserPages/DonationCenters';
+import CategoryGuidelines from './Components/Guidelines/CategoryGuidelines';
+import DemandAnalyticsDashboard from './Components/Analytics/DemandAnalyticsDashboard';
 
 function App() {
   const location = useLocation();
 
-  // Header hide cheyyali admin & user dashboard lo
+  // Header hide in admin & user dashboard
   const hideHeaderRoutes = ["/admin", "/user"];
 
   return (
@@ -29,6 +31,8 @@ function App() {
       <Routes>
         {/* Public Pages */}
         <Route path="/" element={<Home />} />
+        <Route path="/guidelines" element={<CategoryGuidelines />} />
+        <Route path="/analytics" element={<DemandAnalyticsDashboard />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
