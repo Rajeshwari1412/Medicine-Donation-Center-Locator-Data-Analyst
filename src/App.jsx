@@ -17,6 +17,7 @@ import ManageCenters from './Components/Admin-Pages/ManageCenters';
 import DonationCenters from './Components/UserPages/DonationCenters';
 import CategoryGuidelines from './Components/Guidelines/CategoryGuidelines';
 import DemandAnalyticsDashboard from './Components/Analytics/DemandAnalyticsDashboard';
+import MedicineScanner from './Components/Scanner/MedicineScanner';
 
 function App() {
   const location = useLocation();
@@ -35,6 +36,7 @@ function App() {
           {/* Public Pages */}
           <Route path="/" element={<Home />} />
           <Route path="/guidelines" element={<CategoryGuidelines />} />
+          <Route path="/scanner" element={<MedicineScanner />} />
           <Route path="/analytics" element={<DemandAnalyticsDashboard />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
