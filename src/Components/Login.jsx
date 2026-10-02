@@ -1,12 +1,14 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { signInUser } from "../services/supabaseClient";
 import "./Login.css";
 
 const Login = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
   const [msgType, setMsgType] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const [data, setData] = useState({
     username: "",
     password: "",
@@ -14,101 +16,98 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log("Submitting login data:", data);
+    setLoading(true);
+    setMessage("");
 
     try {
-      const res = await axios.post("http://127.0.0.1:8000/api/login/", data);
-      console.log("Response from backend:", JSON.stringify(res.data, null, 2));
+      const result = await signInUser({
+        identifier: data.username,
+        password: data.password,
+      });
 
-      const backendData = res.data;
+      if (result.success) {
+        setMsgType("success");
+        setMessage(result.message || "Login Successful! ✅");
 
-      // Check for error message from backend
-      if (backendData.error) {
+        localStorage.setItem("isUserLoggedIn", "true");
+        localStorage.setItem("username", result.username || data.username);
+        localStorage.setItem("role", result.role || "user");
+
+        setTimeout(() => {
+          if (result.role === "admin") {
+            navigate("/admin");
+          } else {
+            navigate("/user");
+          }
+        }, 800);
+      } else {
         setMsgType("error");
-        setMessage(backendData.error);
-        return;
+        setMessage(result.error || "Invalid credentials ❌");
       }
-
-      // 1️⃣ If backend sends 'role' directly
-      if (backendData.role === "admin") {
-        localStorage.setItem("isUserLoggedIn", "true");
-        localStorage.setItem("username", backendData.username || data.username);
-        localStorage.setItem("role", "admin");
-        navigate("/admin");
-        return;
-      }
-      if (backendData.role === "user") {
-        localStorage.setItem("isUserLoggedIn", "true");
-        localStorage.setItem("username", backendData.username || data.username);
-        localStorage.setItem("role", "user");
-        navigate("/user");
-        return;
-      }
-
-      // 2️⃣ If backend sends 'user' object (common in Django DRF)
-      if (backendData.user) {
-        const user = backendData.user;
-        const isAdmin = user.is_staff || user.role === "admin";
-
-        localStorage.setItem("isUserLoggedIn", "true");
-        localStorage.setItem("username", user.username);
-        localStorage.setItem("role", isAdmin ? "admin" : "user");
-        navigate(isAdmin ? "/admin" : "/user");
-        return;
-      }
-
-      // Fallback
-      setMsgType("error");
-      setMessage("Invalid Credentials");
-
     } catch (err) {
-      console.error("Login error:", err.response || err);
+      console.error("Login error:", err);
       setMsgType("error");
-      setMessage(err.response?.data?.error || "Invalid username or password");
+      setMessage("An error occurred during login. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <main>
-      <h2>Login</h2>
+    <main className="form-container">
+      <h2 className="form-title">Account Login</h2>
 
       {message && (
-        <p className={`msg ${msgType}`} style={{ textAlign: "center" }}>
+        <p className={`msg ${msgType}`} style={{ maxWidth: 440, width: "100%", textAlign: "center", marginBottom: 16 }}>
           {message}
         </p>
       )}
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input
-            name="username"
-            type="text"
-            autoFocus
-            placeholder="Enter Username"
-            value={data.username}
-            onChange={(e) => setData({ ...data, username: e.target.value })}
-            required
-          />
-        </div>
+      <div className="form-box">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <label style={{ display: "block", marginBottom: 6, fontWeight: 600, fontSize: "0.88rem", color: "#334155" }}>
+              Username or Email:
+            </label>
+            <input
+              name="username"
+              type="text"
+              autoFocus
+              placeholder="Enter Username or Email"
+              value={data.username}
+              onChange={(e) => setData({ ...data, username: e.target.value })}
+              required
+            />
+          </div>
 
-        <div>
-          <label>Password:</label>
-          <input
-            name="password"
-            type="password"
-            placeholder="Enter Password"
-            value={data.password}
-            onChange={(e) => setData({ ...data, password: e.target.value })}
-            required
-          />
-        </div>
+          <div>
+            <label style={{ display: "block", marginBottom: 6, fontWeight: 600, fontSize: "0.88rem", color: "#334155" }}>
+              Password:
+            </label>
+            <input
+              name="password"
+              type="password"
+              placeholder="Enter Password"
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
+              required
+            />
+          </div>
 
-        <button type="submit" id="log-btn">
-          Submit
-        </button>
-      </form>
+          <button type="submit" id="log-btn" disabled={loading}>
+            {loading ? "Signing in..." : "Login to Portal"}
+          </button>
+        </form>
+
+        <div style={{ marginTop: 20, paddingTop: 16, borderTop: "1px solid #e2e8f0", fontSize: "0.85rem", color: "#64748b" }}>
+          <p style={{ marginBottom: 8, textAlign: "center" }}>
+            Don't have an account yet? <Link to="/register" style={{ color: "#0d9488", fontWeight: 600 }}>Register here</Link>
+          </p>
+          <div style={{ background: "#f8fafc", padding: "8px 12px", borderRadius: 8, fontSize: "0.78rem" }}>
+            <span>🔑 <strong>Demo Admin:</strong> admin / admin123</span>
+          </div>
+        </div>
+      </div>
     </main>
   );
 };
