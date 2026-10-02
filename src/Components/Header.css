@@ -1,16 +1,152 @@
-header{
-    width:100%;
-    height:70px;
+.main-navbar {
+    width: 100%;
+    height: 72px;
     box-sizing: border-box;
-    background: linear-gradient(60deg,rgb(183, 127, 8),rgb(187, 232, 52),rgb(255, 101, 198));
-    display:flex;
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar-container {
+    max-width: 1320px;
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-left: 2rem;
-    padding-right: 10rem;
-    position: fixed;
-    top:0;
-    z-index: 100;
 }
-.components a{padding-left: 2rem;text-decoration: none; color: black;font-weight: bold;}
-a:hover{color:rgb(15, 221, 18);}
+
+.brand-logo-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.brand-badge-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0d9488 0%, #059669 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    box-shadow: 0 4px 10px rgba(13, 148, 136, 0.35);
+}
+
+#brand-name h1 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #f8fafc;
+    margin: 0;
+    letter-spacing: -0.3px;
+}
+
+.brand-tagline {
+    font-size: 0.72rem;
+    color: #5eead4;
+    display: block;
+    margin-top: 1px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+}
+
+.components {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-item:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-item.active {
+    color: #ffffff;
+    background: rgba(13, 148, 136, 0.25);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    font-weight: 600;
+}
+
+.boost-badge {
+    background: linear-gradient(135deg, #10b981, #059669);
+    color: #ffffff;
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 9999px;
+    letter-spacing: 0.2px;
+}
+
+.nav-item.auth-btn {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-left: 6px;
+}
+
+.nav-item.auth-btn:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.nav-item.login-btn {
+    background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.3);
+}
+
+.nav-item.login-btn:hover {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    transform: translateY(-1px);
+}
+
+@media (max-width: 1024px) {
+    .navbar-container {
+        padding: 0 16px;
+    }
+    #brand-name h1 {
+        font-size: 1rem;
+    }
+    .nav-item {
+        padding: 6px 10px;
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-navbar {
+        height: auto;
+        padding: 10px 0;
+        position: relative;
+    }
+    .navbar-container {
+        flex-direction: column;
+        gap: 12px;
+    }
+    .components {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

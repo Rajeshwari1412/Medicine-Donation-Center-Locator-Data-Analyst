@@ -1,29 +1,33 @@
-import "./Header.css"
-import { NavLink } from "react-router-dom"
+import "./Header.css";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
     return (
-        <>
-            <header>
-                <div id="brand-name">
-                    <h1>Medicine Donation Center Locator</h1>
-                    <span style={{ fontSize: "11px", color: "#a7f3d0", display: "block", marginTop: "-4px" }}>
-                        Category-Based Guidelines & Timings
-                    </span>
-                </div>
-                <div className="components">
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/guidelines">Guidelines</NavLink>
-                    <NavLink to="/donation-centers">Centers & Timings</NavLink>
-                    <NavLink to="/analytics">Analytics (78% Boost)</NavLink>
-                    <NavLink to="/register">Register</NavLink>
-                    <NavLink to="/login">Login</NavLink>
-                </div>
-            </header>
-            <footer>
-                <h4>&copy; 2026 Medicine Donation Center Locator • Powered by Supabase & SQL Analytics</h4>
-            </footer>
-        </>
-    )
-}
+        <header className="main-navbar">
+            <div className="navbar-container">
+                <NavLink to="/" className="brand-logo-link">
+                    <div className="brand-badge-icon">💊</div>
+                    <div id="brand-name">
+                        <h1>Medicine Donation Center Locator</h1>
+                        <span className="brand-tagline">
+                            Category-Based Guidelines & Timings
+                        </span>
+                    </div>
+                </NavLink>
+
+                <nav className="components">
+                    <NavLink to="/" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>Home</NavLink>
+                    <NavLink to="/guidelines" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>Guidelines</NavLink>
+                    <NavLink to="/donation-centers" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>Centers & Timings</NavLink>
+                    <NavLink to="/analytics" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
+                        Analytics <span className="boost-badge">78% Boost</span>
+                    </NavLink>
+                    <NavLink to="/register" className={({ isActive }) => isActive ? "nav-item active auth-btn" : "nav-item auth-btn"}>Register</NavLink>
+                    <NavLink to="/login" className={({ isActive }) => isActive ? "nav-item active login-btn" : "nav-item login-btn"}>Login</NavLink>
+                </nav>
+            </div>
+        </header>
+    );
+};
+
 export default Header;

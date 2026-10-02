@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 import Home from './Components/Home';
 import Register from './Components/Register';
 import Login from './Components/Login';
@@ -20,38 +21,44 @@ import DemandAnalyticsDashboard from './Components/Analytics/DemandAnalyticsDash
 function App() {
   const location = useLocation();
 
-  // Header hide in admin & user dashboard
-  const hideHeaderRoutes = ["/admin", "/user"];
+  // Header and Footer hide in admin & user dashboard
+  const hideChromeRoutes = ["/admin", "/user"];
+  const showChrome = !hideChromeRoutes.includes(location.pathname);
 
   return (
-    <>
+    <div className="app-root-container">
       {/* Header */}
-      {!hideHeaderRoutes.includes(location.pathname) && <Header />}
+      {showChrome && <Header />}
 
-      <Routes>
-        {/* Public Pages */}
-        <Route path="/" element={<Home />} />
-        <Route path="/guidelines" element={<CategoryGuidelines />} />
-        <Route path="/analytics" element={<DemandAnalyticsDashboard />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+      <div className="app-main-content">
+        <Routes>
+          {/* Public Pages */}
+          <Route path="/" element={<Home />} />
+          <Route path="/guidelines" element={<CategoryGuidelines />} />
+          <Route path="/analytics" element={<DemandAnalyticsDashboard />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
 
-        {/* Dashboards */}
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/user" element={<User />} />
+          {/* Dashboards */}
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/user" element={<User />} />
 
-        {/* Admin Functional Pages */}
-        <Route path="/addcenters" element={<AddDonationCenter />} />
-        <Route path="/centertimings" element={<CenterTimings />} />
-        <Route path="/managecenters" element={<ManageCenters />} />
+          {/* Admin Functional Pages */}
+          <Route path="/addcenters" element={<AddDonationCenter />} />
+          <Route path="/centertimings" element={<CenterTimings />} />
+          <Route path="/managecenters" element={<ManageCenters />} />
 
-        {/* User Functional Page */}
-        <Route path="/donation-centers" element={<DonationCenters />} />
+          {/* User Functional Page */}
+          <Route path="/donation-centers" element={<DonationCenters />} />
 
-        {/* Default Redirect */}
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
-    </>
+          {/* Default Redirect */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </div>
+
+      {/* Footer */}
+      {showChrome && <Footer />}
+    </div>
   );
 }
 
