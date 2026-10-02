@@ -18,6 +18,7 @@ import DonationCenters from './Components/UserPages/DonationCenters';
 import CategoryGuidelines from './Components/Guidelines/CategoryGuidelines';
 import DemandAnalyticsDashboard from './Components/Analytics/DemandAnalyticsDashboard';
 import MedicineScanner from './Components/Scanner/MedicineScanner';
+import DonationCertificate from './Components/Certificate/DonationCertificate';
 
 function App() {
   const location = useLocation();
@@ -38,6 +39,7 @@ function App() {
           <Route path="/guidelines" element={<CategoryGuidelines />} />
           <Route path="/scanner" element={<MedicineScanner />} />
           <Route path="/analytics" element={<DemandAnalyticsDashboard />} />
+          <Route path="/certificate" element={<DonationCertificate />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
 

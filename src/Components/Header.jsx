@@ -25,6 +25,7 @@ const Header = () => {
                     <NavLink to="/analytics" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>
                         Analytics <span className="boost-badge">78% Boost</span>
                     </NavLink>
+                    <NavLink to="/certificate" className={({ isActive }) => isActive ? "nav-item active" : "nav-item"}>📜 Certificate</NavLink>
                     <NavLink to="/register" className={({ isActive }) => isActive ? "nav-item active auth-btn" : "nav-item auth-btn"}>Register</NavLink>
                     <NavLink to="/login" className={({ isActive }) => isActive ? "nav-item active login-btn" : "nav-item login-btn"}>Login</NavLink>
                 </nav>
