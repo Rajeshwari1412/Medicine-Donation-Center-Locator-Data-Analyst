@@ -1,4 +1,5 @@
 import './App.css';
+import React from 'react';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Home from './Components/Home';
@@ -19,6 +20,9 @@ import CategoryGuidelines from './Components/Guidelines/CategoryGuidelines';
 import DemandAnalyticsDashboard from './Components/Analytics/DemandAnalyticsDashboard';
 import MedicineScanner from './Components/Scanner/MedicineScanner';
 import DonationCertificate from './Components/Certificate/DonationCertificate';
+import EmergencySOS from './Components/Emergency/EmergencySOS';
+import SmartCabinet from './Components/Cabinet/SmartCabinet';
+import MedBot from './Components/Chatbot/MedBot';
 
 function App() {
   const location = useLocation();
@@ -34,8 +38,10 @@ function App() {
 
       <div className="app-main-content">
         <Routes>
-          {/* Public Pages */}
+          {/* Public & Feature Pages */}
           <Route path="/" element={<Home />} />
+          <Route path="/emergency-sos" element={<EmergencySOS />} />
+          <Route path="/cabinet" element={<SmartCabinet />} />
           <Route path="/guidelines" element={<CategoryGuidelines />} />
           <Route path="/scanner" element={<MedicineScanner />} />
           <Route path="/analytics" element={<DemandAnalyticsDashboard />} />
@@ -59,6 +65,9 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
+
+      {/* Global Interactive AI Chatbot */}
+      <MedBot />
 
       {/* Footer */}
       {showChrome && <Footer />}

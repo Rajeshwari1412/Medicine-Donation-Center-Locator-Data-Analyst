@@ -1,0 +1,293 @@
+/* Smart Cabinet Styling */
+.cabinet-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 50%, #f8fafc 100%);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  padding: 2.5rem 1.5rem 5rem;
+}
+
+.cabinet-container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.cabinet-banner {
+  background: linear-gradient(135deg, #065f46 0%, #0d9488 50%, #0284c7 100%);
+  color: #ffffff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  box-shadow: 0 15px 35px rgba(6, 95, 70, 0.2);
+}
+
+.cabinet-banner-title h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 6px 0;
+}
+
+.cabinet-banner-title p {
+  margin: 0;
+  color: #ccfbf1;
+  font-size: 1rem;
+}
+
+.cabinet-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.cabinet-stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cabinet-stat-card .icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.cabinet-stat-card .icon.emerald { background: #d1fae5; }
+.cabinet-stat-card .icon.amber { background: #fef3c7; }
+.cabinet-stat-card .icon.rose { background: #ffe4e6; }
+.cabinet-stat-card .icon.blue { background: #e0f2fe; }
+
+.cabinet-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 2rem;
+}
+
+@media (max-width: 960px) {
+  .cabinet-grid-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cabinet-main-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.cabinet-top-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.cabinet-filter-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.cabinet-tab-btn {
+  background: #f1f5f9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cabinet-tab-btn.active {
+  background: #0d9488;
+  color: #ffffff;
+}
+
+.cabinet-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cabinet-item-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.4rem;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.cabinet-item-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.cabinet-item-card.critical {
+  border-left: 5px solid #f43f5e;
+  background: #fff1f2;
+}
+
+.cabinet-item-card.warning {
+  border-left: 5px solid #f59e0b;
+  background: #fffbeb;
+}
+
+.cabinet-item-card.safe {
+  border-left: 5px solid #10b981;
+}
+
+.cabinet-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+.cabinet-item-head h4 {
+  margin: 0 0 4px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.cabinet-pill-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.cabinet-pill-badge.safe { background: #dcfce7; color: #15803d; }
+.cabinet-pill-badge.warning { background: #fef3c7; color: #b45309; }
+.cabinet-pill-badge.critical { background: #ffe4e6; color: #be123c; }
+
+.expiry-countdown-bar-wrap {
+  margin: 10px 0;
+}
+
+.expiry-bar-bg {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.expiry-bar-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.expiry-bar-fill.safe { background: #10b981; }
+.expiry-bar-fill.warning { background: #f59e0b; }
+.expiry-bar-fill.critical { background: #ef4444; }
+
+.cabinet-item-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.convert-donate-btn {
+  background: #0d9488;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.convert-donate-btn:hover {
+  background: #0f766e;
+}
+
+/* Add Medicine Form */
+.cabinet-side-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  height: fit-content;
+}
+
+.cabinet-side-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0f4c81;
+}
+
+.side-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 1.1rem;
+}
+
+.side-form-group label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+}
+
+.side-form-group input,
+.side-form-group select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.9rem;
+  outline: none;
+  font-family: inherit;
+}
+
+.side-form-group input:focus,
+.side-form-group select:focus {
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.add-med-btn {
+  width: 100%;
+  background: #0f4c81;
+  color: #ffffff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.add-med-btn:hover {
+  background: #09345c;
+}

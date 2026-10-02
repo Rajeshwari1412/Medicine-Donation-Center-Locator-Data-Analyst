@@ -42,6 +42,8 @@ const Home = () => {
                         <span>🌱 Verified Health Impact</span>
                         <span className="badge-dot">•</span>
                         <span>Zero Wastage Initiative</span>
+                        <span className="badge-dot">•</span>
+                        <span style={{ color: "#fca5a5" }}>🚨 Live SOS Dispatch</span>
                     </div>
 
                     <h1 className="hero-title">
@@ -53,14 +55,17 @@ const Home = () => {
                     </p>
 
                     <div className="hero-actions">
-                        <Link to="/donation-centers" className="btn-hero-primary">
-                            📍 Locate Donation Centers
+                        <Link to="/emergency-sos" className="btn-hero-primary" style={{ background: "linear-gradient(135deg, #ef4444 0%, #b91c1c 100%)", boxShadow: "0 6px 20px rgba(239, 68, 68, 0.4)" }}>
+                            🚨 Emergency SOS Portal
                         </Link>
-                        <Link to="/guidelines" className="btn-hero-secondary">
-                            📋 Donation Guidelines
+                        <Link to="/scanner" className="btn-hero-secondary">
+                            📷 AI Label Scanner
                         </Link>
-                        <Link to="/analytics" className="btn-hero-analytics">
-                            📊 Demand Analytics <span className="pill-tag">78% Boost</span>
+                        <Link to="/cabinet" className="btn-hero-secondary">
+                            🏠 Smart Cabinet
+                        </Link>
+                        <Link to="/donation-centers" className="btn-hero-secondary">
+                            📍 Locate Centers
                         </Link>
                     </div>
 
@@ -70,16 +75,16 @@ const Home = () => {
                             <span className="stat-label">Units Donated</span>
                         </div>
                         <div className="stat-card">
+                            <span className="stat-value">&lt;45m</span>
+                            <span className="stat-label">SOS Dispatch Speed</span>
+                        </div>
+                        <div className="stat-card">
                             <span className="stat-value">100%</span>
                             <span className="stat-label">Verified Centers</span>
                         </div>
                         <div className="stat-card">
                             <span className="stat-value">78%</span>
-                            <span className="stat-label">Supply-Match Rate</span>
-                        </div>
-                        <div className="stat-card">
-                            <span className="stat-value">0₹</span>
-                            <span className="stat-label">Free for All Donors</span>
+                            <span className="stat-label">Supply-Match Surge</span>
                         </div>
                     </div>
                 </div>
@@ -118,58 +123,76 @@ const Home = () => {
                     )}
                 </div>
 
-                {/* Enhanced 3 Feature Pillar Cards */}
+                {/* Enhanced Feature Pillar Cards */}
                 <div className="home-features-grid">
-                    <Link to="/donation-centers" className="feature-card interactive-card">
+                    <Link to="/emergency-sos" className="feature-card interactive-card" style={{ borderTop: "4px solid #ef4444" }}>
                         <div className="card-top-row">
-                            <div className="feature-icon bg-teal">📍</div>
-                            <span className="card-pill">Interactive Map</span>
+                            <div className="feature-icon bg-rose">🚨</div>
+                            <span className="card-pill" style={{ background: "#ffe4e6", color: "#be123c" }}>Emergency SOS</span>
                         </div>
-                        <h3>Verified Drop-off Points</h3>
-                        <p>Locate accredited NGO and hospital medicine banks with confirmed operating hours, GPS navigation, and 24/7 drop boxes.</p>
+                        <h3>Urgent Hospital ICU Matcher</h3>
+                        <p>Real-time AI matching engine connecting critical hospital shortages with available stockpiles in nearby donation hubs.</p>
                         <ul className="card-highlights">
-                            <li>✓ Live Open/Closed timings</li>
-                            <li>✓ Direct GPS directions link</li>
-                            <li>✓ 1-click drop-off slot booking</li>
+                            <li>✓ Under 45-min rapid courier alert</li>
+                            <li>✓ Cold-chain monitored transfer</li>
+                            <li>✓ 1-click ICU shortage broadcast</li>
                         </ul>
                         <div className="card-footer-cta">
-                            <span>Locate Centers</span>
+                            <span style={{ color: "#ef4444" }}>Open SOS Portal</span>
                             <span className="cta-arrow">➔</span>
                         </div>
                     </Link>
 
-                    <Link to="/guidelines" className="feature-card interactive-card">
+                    <Link to="/cabinet" className="feature-card interactive-card">
                         <div className="card-top-row">
-                            <div className="feature-icon bg-indigo">🛡️</div>
-                            <span className="card-pill">6 Core Protocols</span>
+                            <div className="feature-icon bg-emerald">🏠</div>
+                            <span className="card-pill" style={{ background: "#d1fae5", color: "#065f46" }}>Smart Expiry Tracker</span>
                         </div>
-                        <h3>Category & Expiry Rules</h3>
-                        <p>Strict clinical safety criteria for prescription antibiotics, cardiac meds, insulin cold-chain, and pediatric care.</p>
+                        <h3>Home Medicine Cabinet</h3>
+                        <p>Organize your home medicines, monitor days remaining until expiration, and receive automated donate-before-expiry alerts.</p>
                         <ul className="card-highlights">
-                            <li>✓ ≥60-90 days expiry verification</li>
-                            <li>✓ Blister pack & seal standards</li>
-                            <li>✓ Prohibited items warning list</li>
+                            <li>✓ Expiry degradation countdown bars</li>
+                            <li>✓ Safe vs critical alert badges</li>
+                            <li>✓ 1-click batch donation converter</li>
                         </ul>
                         <div className="card-footer-cta">
-                            <span>Read Guidelines</span>
+                            <span>Open Cabinet</span>
                             <span className="cta-arrow">➔</span>
                         </div>
                     </Link>
 
-                    <Link to="/analytics" className="feature-card interactive-card">
+                    <Link to="/scanner" className="feature-card interactive-card">
                         <div className="card-top-row">
-                            <div className="feature-icon bg-sky">📈</div>
-                            <span className="card-pill">78% Match Surge</span>
+                            <div className="feature-icon bg-sky">📷</div>
+                            <span className="card-pill">AI Vision OCR</span>
                         </div>
-                        <h3>Data-Driven Analytics</h3>
-                        <p>Real-time demand tracking and SQL-backed insights that optimize medicine distribution across urban centers.</p>
+                        <h3>AI Medicine Label Scanner</h3>
+                        <p>Capture medicine labels to instantly extract batch numbers, calculate remaining shelf-life, and get immediate verdicts.</p>
                         <ul className="card-highlights">
-                            <li>✓ Surplus vs shortfall modeling</li>
-                            <li>✓ Cold-chain priority analytics</li>
-                            <li>✓ Regional demand heatmaps</li>
+                            <li>✓ Automated batch & date extraction</li>
+                            <li>✓ Storage condition alerts</li>
+                            <li>✓ Instant eligibility calculation</li>
                         </ul>
                         <div className="card-footer-cta">
-                            <span>Explore Analytics</span>
+                            <span>Launch Scanner</span>
+                            <span className="cta-arrow">➔</span>
+                        </div>
+                    </Link>
+
+                    <Link to="/certificate" className="feature-card interactive-card">
+                        <div className="card-top-row">
+                            <div className="feature-icon bg-amber">📜</div>
+                            <span className="card-pill" style={{ background: "#fef3c7", color: "#92400e" }}>Section 80G</span>
+                        </div>
+                        <h3>Digital 80G Tax Certificates</h3>
+                        <p>Generate verifiable donation certificates with unique serial numbers, itemized valuations, and QR verification.</p>
+                        <ul className="card-highlights">
+                            <li>✓ Form 10BE tax exemption receipt</li>
+                            <li>✓ Instant tamper-proof QR code</li>
+                            <li>✓ High-resolution print & PDF layout</li>
+                        </ul>
+                        <div className="card-footer-cta">
+                            <span>Generate Receipt</span>
                             <span className="cta-arrow">➔</span>
                         </div>
                     </Link>
